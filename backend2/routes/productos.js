@@ -4,13 +4,14 @@ const { check } = require('express-validator');
 
 
 //const { validarCampos } = require('../middlewares/validar-campos');
-const { existeArticuloId,existeCategoriaId } = require('../helpers/db-validators');
+const { existeProductoPorId,existeCategoriaPorId,existeUsuarioPorId} = require('../helpers/db-validators');
 
 const { productosGet,
-        articulosPut,
-        articulosPost,
-        articulosDelete,
-        articulosPatch } = require('../controllers/productos');
+        productoGet,
+        productoPost,
+        productoPut,
+        productosPatch,
+        productoDelete, } = require('../controllers/productos');
 
 const { 
         validarJWT, 
@@ -22,29 +23,29 @@ const router = Router();
 
 
 router.get('/',validarJWT,productosGet );
+router.get('/:id',validarJWT,productoGet );
 
 router.put('/:id',[
     check('id', 'No es un ID válido').isMongoId(),
-    check('id').custom( existeArticuloId ),
+    check('id').custom( existeProductoPorId ),
     validarCampos
-],articulosPut );
+],productoPut );
 
 router.post('/',[
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('cantidad', 'La cantidad es obligatoria').not().isEmpty(),
-    check('precio_venta', 'El precio de venta es obligatoria').not().isEmpty(),
-    check('precio_compra', 'El precio de compra es obligatoria').not().isEmpty(),
-    check('categoria').custom(existeCategoriaId),
+    check('stock', 'El Stock es obligatoria').not().isEmpty(),
+    //check('categoria').custom(existeCategoriaPorId),
+    //check('usuario').custom(existeUsuarioPorId),
     validarCampos
-], articulosPost );
+], productoPost );
 
 router.delete('/:id',[
     check('id', 'No es un ID válido').isMongoId(),
-    check('id').custom( existeArticuloId ),
+    check('id').custom( existeProductoPorId ),
     validarCampos
-],articulosDelete );
+],productoDelete );
 
-router.patch('/', articulosPatch );
+router.patch('/', productosPatch );
 
 
 module.exports = router;

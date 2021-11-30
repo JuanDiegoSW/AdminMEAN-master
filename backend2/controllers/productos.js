@@ -19,48 +19,62 @@ const productosGet = async(req = request, res = response) => {
     })
 }
 
-const articulosPost = async(req, res = response) => {
-    //console.log (req.body)
-    const { nombre, cantidad, precio_venta, precio_compra,img,categoria,estado} = req.body;
-    const articulos = new Articulo({ nombre, cantidad, precio_venta, precio_compra,img,categoria,estado });
+const productoGet = async(req = request, res = response) => {
 
-    // Guardar en BD
-    await articulos.save();
+    const { id } = req.params;
+    const producto = await Producto.findById(id)
+                                .populate('usuario','nombre')
+                                .populate('categoria','nombre')
+
 
     res.json({
-        articulos
+        ok: true,
+        producto
+    })
+}
+
+const productoPost = async(req, res = response) => {
+    //console.log (req.body)
+    const { nombre,estado,usuario,precio, stock,categoria,img} = req.body;
+    const producto = new Producto({ nombre,estado,usuario,precio, stock,categoria,img });
+
+    // Guardar en BD
+    await producto.save();
+
+    res.json({
+        producto
     });
 }
 
-const articulosPut = async(req, res = response) => {
+const productoPut = async(req, res = response) => {
 
     const { id } = req.params;
-    const { _id, nombre, ...resto } = req.body;
+    const { _id, ...resto } = req.body;
 
     
 
-    const articulo = await Articulo.findByIdAndUpdate( id, resto );
+    const producto = await Producto.findByIdAndUpdate( id, resto );
 
-    res.json(articulo);
+    res.json(producto);
 }
 
-const articulosPatch = (req, res = response) => {
+const productosPatch = (req, res = response) => {
     res.json({
         msg: 'patch API - articulosPatch'
     });
 }
 
-const articulosDelete = async(req, res = response) => {
+const productoDelete = async(req, res = response) => {
 
     const { id } = req.params;
 
     //Fisicamente lo borramos
-    const articulo = await Articulo.findByIdAndDelete( id );
+    const producto = await Producto.findByIdAndDelete( id );
 
     //const Articulo = await Articulo.findByIdAndUpdate( id, { estado: false } );
 
 
-    res.json(articulo);
+    res.json(producto);
 }
 
 
@@ -68,8 +82,9 @@ const articulosDelete = async(req, res = response) => {
 
 module.exports = {
     productosGet,
-    articulosPost,
-    articulosPut,
-    articulosPatch,
-    articulosDelete,
+    productoGet,
+    productoPost,
+    productoPut,
+    productosPatch,
+    productoDelete,
 }

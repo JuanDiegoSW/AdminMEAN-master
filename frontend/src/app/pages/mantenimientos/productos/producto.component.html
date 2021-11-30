@@ -1,87 +1,100 @@
-
-<div class="row">
-  <div class="col-md-6">
+<div class="col-md-12">
+  <div class="row">
+    <div class="col-md-6">
       <div class="card">
-          <div class="card-body">
+        <div class="card-body">
 
-              <h4 class="card-title">Médico</h4>
-              <h6 class="card-subtitle">Actualizar información</h6>
+          <h4 class="card-title">Producto</h4>
+          <h6 class="card-subtitle">Actualizar información</h6>
 
-              <form class="form-horizontal p-t-20"
-                      [formGroup]="medicoForm"
-                      (submit)="guardarMedico()">
+          <form class="form-horizontal p-t-20" (submit)="guardarProducto()">
 
-                  <div class="form-group row"
-                          *ngIf="medicoSeleccionado">
-                      <label for="exampleInputuname3" class="col-sm-3 control-label">Foto</label>
-                      <div class="col-sm-9">
-                          <div class="input-group">
-                              <img [src]="medicoSeleccionado.img | imagen: 'medicos'"
-                                   class="w200"/>
-                          </div>
-                      </div>
-                  </div>
+            <div class="form-group row">
+              <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
+              <div class="col-sm-9">
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="ti-user"></i></div>
+                  <input type="text" formControlName="nombre" class="form-control" id="exampleInputuname3"
+                    placeholder="Nombre del Producto">
+                </div>
+              </div>
+            </div>
 
-                  <div class="form-group row">
-                      <label for="exampleInputuname3" class="col-sm-3 control-label">Nombre</label>
-                      <div class="col-sm-9">
-                          <div class="input-group">
-                              <div class="input-group-addon"><i class="ti-user"></i></div>
-                              <input type="text"
-                                      formControlName="nombre"
-                                      class="form-control"
-                                      id="exampleInputuname3"
-                                      placeholder="Nombre del médico">
-                          </div>
-                      </div>
-                  </div>
+            <div class="form-group row">
+              <label for="exampleInputEmail3" class="col-sm-3 control-label">Categoria</label>
+              <div class="col-sm-9">
+                <div class="input-group">
+                  <select class="form-control" formControlName="hospital">
+                    <option value="">Seleccione Categoria</option>
+                    <option *ngFor="let categoria of categorias" [value]="categoria._id">
+                      {{ categoria.nombre }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleInputuname3" class="col-sm-3 control-label">Stock</label>
+              <div class="col-sm-9">
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="ti-user"></i></div>
+                  <input type="text" formControlName="nombre" class="form-control" id="exampleInputuname3"
+                    placeholder="Stock del Producto">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="exampleInputuname3" class="col-sm-3 control-label">Precio Venta</label>
+              <div class="col-sm-9">
+                <div class="input-group">
+                  <div class="input-group-addon"><i class="ti-user"></i></div>
+                  <input type="text" formControlName="nombre" class="form-control" id="exampleInputuname3"
+                    placeholder="Precio del Producto">
+                </div>
+              </div>
+            </div>
 
-                  <div class="form-group row">
-                      <label for="exampleInputEmail3" class="col-sm-3 control-label">Hospital</label>
-                      <div class="col-sm-9">
-                          <div class="input-group">
-                              <select class="form-control"
-                                      formControlName="hospital">
-                                  <option value="">Seleccione Hospital</option>
-                                  <option *ngFor="let hospital of hospitales"
-                                      [value]="hospital._id">
-                                      {{ hospital.nombre }}
-                                  </option>
-                              </select>
-                          </div>
-                      </div>
-                  </div>
 
-                  <div class="form-group row m-b-0">
-                      <div class="offset-sm-3 col-sm-9">
-                          <button type="submit"
-                                  [disabled]="medicoForm.invalid"
-                                  class="btn btn-success waves-effect waves-light">
-                              <i class="fa fa-save"></i>
-                              Guardar
-                          </button>
-                      </div>
-                  </div>
-              </form>
-          </div>
+            <div class="form-group row m-b-0">
+              <div class="offset-sm-3 col-sm-9">
+                <button type="submit" [disabled]="productoForm.invalid"
+                  class="btn btn-success waves-effect waves-light">
+                  <i class="fa fa-save"></i>
+                  Guardar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-  </div>
+    </div>
 
-  <div class="col animated fadeIn fast"
-      *ngIf="hospitalSeleccionado">
+    <div class="col-md-6">
       <div class="card">
-          <div class="card-body">
+        <div class="card-body">
+          <h4 class="card-title">Ficha del Producto</h4>
+          <h6 class="card-subtitle">Imagen del Producto</h6>
 
-              <h4 class="card-title">Hospital</h4>
-              <h6 class="card-subtitle">{{ hospitalSeleccionado.nombre }}</h6>
 
-              <img [src]="hospitalSeleccionado.img | imagen:'hospitales'"
-                  class="img-thumbnail"/>
 
+          <div class="text-center">
+            <img *ngIf="!imgTemp" [src]="productoSeleccionado.imagenUrl" class="img-avatar">
+            <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
           </div>
-      </div>
+          <br><br>
+          <input type="file" (change)="cambiarImagen($event.target.files[0])">
 
+          <br>
+          <br>
+
+          <button type="button" class="btn btn-success btn-block waves-effect waves-light m-r-10"
+            [disabled]="!imagenSubir" (click)="subirImagen()">
+            <i class="fa fa-save"></i>
+            Cambiar imagen
+          </button>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
-

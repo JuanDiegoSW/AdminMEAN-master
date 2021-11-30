@@ -20,13 +20,16 @@ const ProductoSchema = Schema({
         type: Number,
         default: 0
     },
+    stock:{
+        type: Number,
+        required: true
+    },
     categoria: {
         type: Schema.Types.ObjectId,
         ref: 'Categoria',
         required: true
     },
-    descripcion: { type: String },
-    disponible: { type: Boolean, defult: true },
+    descripcion: { type: String, default: "Producto" },
     img: { type: String },
 });
 

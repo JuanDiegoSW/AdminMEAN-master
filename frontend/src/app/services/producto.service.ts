@@ -33,6 +33,32 @@ export class ProductoService {
                   map( (resp: {productos: Producto[] }) => resp.productos )
                 );
   }
+  obtenerProductoPorId( id: string ) {
+
+    const url = `${ base_url }/productos/${ id }`;
+    return this.http.get( url, this.headers )
+              .pipe(
+                map( (resp: {ok: boolean, producto: Producto }) => resp.producto )
+              );
+  }
+
+  crearProducto( producto: { nombre: string, categoria: string } ) {
+
+    const url = `${ base_url }/productos`;
+    return this.http.post( url, producto, this.headers );
+  }
+
+  actualizarProducto( producto: Producto  ) {
+
+    const url = `${ base_url }/productos/${ producto._id }`;
+    return this.http.put( url, producto, this.headers );
+  }
+
+  borrarProducto( _id: string ) {
+
+    const url = `${ base_url }/productos/${ _id }`;
+    return this.http.delete( url, this.headers );
+  }
 }
 
 

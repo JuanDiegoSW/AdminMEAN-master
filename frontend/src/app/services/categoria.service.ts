@@ -23,7 +23,7 @@ export class CategoriaService {
       }
     }
   }
-  cargarcategorias() {
+  cargarCategorias() {
 
     const url = `${ base_url }/categorias`;
     return this.http.get( url, this.headers )
@@ -34,19 +34,19 @@ export class CategoriaService {
 
   crearCategoria( nombre: string ) {
 
-    const url = `${ base_url }/hospitales`;
+    const url = `${ base_url }/categoria`;
     return this.http.post( url, { nombre }, this.headers );
   }
-  
+
   actualizarCategoria( _id: string, nombre: string  ) {
 
-    const url = `${ base_url }/hospitales/${ _id }`;
+    const url = `${ base_url }/categoria/${ _id }`;
     return this.http.put( url, { nombre }, this.headers );
   }
 
   borrarHospital( _id: string ) {
 
-    const url = `${ base_url }/hospitales/${ _id }`;
+    const url = `${ base_url }/categoria/${ _id }`;
     return this.http.delete( url, this.headers );
   }
 
