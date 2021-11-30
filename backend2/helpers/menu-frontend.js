@@ -6,7 +6,7 @@ const getMenuFrontEnd = (role = 'USER_ROLE') => {
           icono: 'mdi mdi-cake',
           submenu: [
             // { titulo: 'Usuarios', url: 'usuarios' },
-            { titulo: 'Lista Productos', url: 'hospitales' },
+            { titulo: 'Lista Productos', url: 'productos' },
             { titulo: 'Nuevo Producto', url: 'medicos' },
           ]
         },

@@ -1,21 +1,21 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Subscription} from 'rxjs';
 import { delay } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 
-import { Producto } from '../../../models/producto.model';
+import { Producto } from 'src/app/models/producto.model';
 
-import { BusquedasService } from '../../../services/busquedas.service';
-import { ProductoService } from '../../../services/producto.service';
-import { ModalImagenService } from '../../../services/modal-imagen.service';
+import { BusquedasService } from 'src/app/services/busquedas.service';
+import { ProductoService } from 'src/app/services/producto.service';
+import { ModalImagenService } from 'src/app/services/modal-imagen.service';
+
 
 @Component({
-  selector: 'app-medicos',
-  templateUrl: './medicos.component.html',
-  styles: [
-  ]
+  selector: 'app-productos',
+  templateUrl: './productos.component.html',
+  styles: []
 })
-export class MedicosComponent implements OnInit, OnDestroy {
+export class ProductosComponent implements OnInit, OnDestroy {
 
   public cargando: boolean = true;
   public productos: Producto[] = [];
@@ -60,7 +60,7 @@ export class MedicosComponent implements OnInit, OnDestroy {
 
   abrirModal(producto: Producto) {
 
-    this.modalImagenService.abrirModal( 'medicos', producto._id, producto.img );
+    this.modalImagenService.abrirModal( 'productos', producto._id, producto.img );
 
   }
 

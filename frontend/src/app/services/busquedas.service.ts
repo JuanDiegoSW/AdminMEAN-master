@@ -32,7 +32,7 @@ export class BusquedasService {
   private transformarUsuarios( resultados: any[] ): Usuario[] {
 
     return resultados.map(
-      user => new Usuario(user.nombre, user.email, '', user.img, user.google, user.role, user.uid )  
+      user => new Usuario(user.nombre, user.email, '', user.img, user.google, user.role, user.uid )
     );
   }
 
@@ -52,15 +52,15 @@ export class BusquedasService {
   }
 
 
-  buscar( 
-      tipo: 'usuarios'|'medicos'|'hospitales',
+  buscar(
+      tipo: 'usuarios'|'medicos'|'hospitales'|'productos',
       termino: string
     ) {
 
     const url = `${ base_url }/todo/coleccion/${ tipo }/${ termino }`;
     return this.http.get<any[]>( url, this.headers )
             .pipe(
-              map( (resp: any ) => { 
+              map( (resp: any ) => {
 
                 switch ( tipo ) {
                   case 'usuarios':
@@ -71,7 +71,7 @@ export class BusquedasService {
 
                   case 'medicos':
                      return this.transformarMedicos( resp.resultados )
-                
+
                   default:
                     return [];
                 }
