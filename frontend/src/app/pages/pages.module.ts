@@ -21,6 +21,8 @@ import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component'
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
+import { ProductoComponent } from './mantenimientos/productos/producto.component';
+import { ProductosComponent } from './mantenimientos/productos/productos.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
@@ -42,6 +44,8 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     MedicosComponent,
     MedicoComponent,
     BusquedaComponent,
+    ProductosComponent,
+    ProductoComponent
   ],
   exports: [
     DashboardComponent,
@@ -50,7 +54,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
     PagesComponent,
     AccountSettingsComponent
   ],
-  imports: [ 
+  imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

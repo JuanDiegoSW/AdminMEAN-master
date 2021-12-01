@@ -21,6 +21,7 @@ export class Producto {
         public _id?: string,
         public img?: string,
         public estado?: boolean,
+        public precio?: Number,
         public stock?: Number,
         public usuario?: _ProductoUser,
         public categoria?: Categoria,

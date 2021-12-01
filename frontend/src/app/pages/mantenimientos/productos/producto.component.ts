@@ -3,15 +3,15 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 
-import { Producto }from '../../../models/producto.model'
-import { Categoria } from '../../../models/categoria.model'
+import { Producto } from 'src/app/models/producto.model';
+import { Categoria } from 'src/app/models/categoria.model';
 
-import { ProductoService } from '../../../services/producto.service';
-import { CategoriaService } from '../../../services/categoria.service';
-
+import { ProductoService } from 'src/app/services/producto.service';
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { delay } from 'rxjs/operators';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
-import { delay } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-producto',
@@ -21,9 +21,10 @@ import { delay } from 'rxjs/operators';
 })
 export class ProductoComponent implements OnInit {
 
-  public producto : Producto;
+
   public productoForm : FormGroup;
-  public categorias : Categoria[] = []
+  public categorias : Categoria[] = [];
+  public producto : Producto;
 
   public productoSeleccionado : Producto;
   public categoriaSeleccionado :  Categoria;
@@ -45,6 +46,8 @@ export class ProductoComponent implements OnInit {
 
     this.productoForm = this.fb.group({
       nombre: ['', Validators.required ],
+      stock : ['', Validators.required ],
+      precio: ['', Validators.required ],
       categoria: ['', Validators.required ],
     });
 
@@ -72,11 +75,12 @@ export class ProductoComponent implements OnInit {
           return this.router.navigateByUrl(`/dashboard/productos`);
         }
 
-        const { nombre, categoria:{ _id } } = producto;
-        this.productoSeleccionado = producto;
-        console.log(this.productoSeleccionado);
+        const { nombre, stock, precio, categoria:{ _id } } = producto;
 
-        this.productoForm.setValue({ nombre, categoria: _id });
+        this.productoSeleccionado = producto;
+
+
+        this.productoForm.setValue({ nombre, stock, precio, categoria: _id });
       });
 
   }

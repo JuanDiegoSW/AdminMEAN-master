@@ -12,6 +12,10 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "extends": "./configs/base",
+      "files": ["main.ts", "supplemental.ts"]
     }
   ]
 }

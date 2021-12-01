@@ -8,8 +8,6 @@ import { AuthModule } from './auth/auth.module';
 
 import { AppComponent } from './app.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
-import { ProductosComponent } from './pages/mantenimientos/productos/productos.component';
-import { ProductoComponent } from './pages/mantenimientos/productos/producto.component';
 
 
 
@@ -19,8 +17,6 @@ import { ProductoComponent } from './pages/mantenimientos/productos/producto.com
   declarations: [
     AppComponent,
     NopagefoundComponent,
-    ProductosComponent,
-    ProductoComponent,
   ],
   imports: [
     BrowserModule,
