@@ -11,6 +11,7 @@ const { categoriasGet,
         categoriasPost,
         categoriasDelete,
         categoriasPatch } = require('../controllers/categorias');
+const { validarJWT } = require('../middlewares');
 
 const router = Router();
 
@@ -18,6 +19,7 @@ const router = Router();
 router.get('/', categoriasGet );
 
 router.put('/:id',[
+    validarJWT,
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeCategoriaPorId ),    
     //check('rol').custom( esRoleValido ), 
@@ -25,12 +27,14 @@ router.put('/:id',[
 ],categoriasPut );
 
 router.post('/',[
+    validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('nombre').custom(nombreExiste),
     validarCampos,    
 ], categoriasPost );
 
 router.delete('/:id',[
+    validarJWT,
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeCategoriaPorId ),
     validarCampos

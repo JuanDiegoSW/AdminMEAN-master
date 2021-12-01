@@ -35,15 +35,29 @@ const productoGet = async(req = request, res = response) => {
 
 const productoPost = async(req, res = response) => {
     //console.log (req.body)
-    const { nombre,estado,usuario,precio, stock,categoria,img} = req.body;
-    const producto = new Producto({ nombre,estado,usuario,precio, stock,categoria,img });
+    //const { nombre,estado,usuario,precio, stock,categoria,img} = req.body;
+    //const producto = new Producto({ nombre,estado,usuario,precio, stock,categoria,img });
+    console.log(req);
 
-    // Guardar en BD
-    await producto.save();
-
-    res.json({
-        producto
+    const uid = req.uid
+    const producto = new Producto({
+      usuario:uid,
+      ... req.body
     });
+    try {
+      const productoDB = await producto.save();
+      res.json({
+        producto:productoDB
+    });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        ok: false,
+        msg: 'Hable con el administrador'
+    })
+
+    }
+    
 }
 
 const productoPut = async(req, res = response) => {

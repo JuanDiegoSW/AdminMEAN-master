@@ -18,6 +18,7 @@ class Server {
         this.detalleVentaPath = '/api/v1/detalleventas';
         this.authPath = '/api/v1/login';
         this.uploadPath = '/api/v1/upload';
+        this.busquedaPath = '/api/v1/todo';
 
         // Conectar a base de datos
         this.conectarDB();
@@ -63,6 +64,7 @@ class Server {
         this.app.use( this.detalleVentaPath, require('../routes/detalle_ventas'));
         this.app.use( this.authPath, require('../routes/auth'));
         this.app.use( this.uploadPath, require('../routes/uploads'));
+        this.app.use( this.busquedaPath,require('../routes/busquedas') );
     }
 
     listen() {

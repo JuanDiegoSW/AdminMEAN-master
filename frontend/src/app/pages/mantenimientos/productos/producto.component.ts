@@ -111,11 +111,13 @@ export class ProductoComponent implements OnInit {
 
     } else {
       // crear
+      console.log(this.productoForm.value);
 
       this.productoService.crearProducto( this.productoForm.value )
+
           .subscribe( (resp: any) => {
             Swal.fire('Creado', `${ nombre } creado correctamente`, 'success');
-            this.router.navigateByUrl(`/dashboard/medico/${ resp.medico._id }`)
+            this.router.navigateByUrl(`/dashboard/producto/${ resp.producto._id }`)
         })
     }
   }

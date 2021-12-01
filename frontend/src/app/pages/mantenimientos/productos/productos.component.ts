@@ -51,11 +51,11 @@ export class ProductosComponent implements OnInit, OnDestroy {
     if ( termino.length === 0 ) {
       return this.cargarProductos();
     }
-    /*
+
     this.busquedasService.buscar( 'productos', termino )
         .subscribe( resp => {
           this.productos = resp;
-        });*/
+        });
   }
 
   abrirModal(producto: Producto) {
@@ -65,7 +65,7 @@ export class ProductosComponent implements OnInit, OnDestroy {
   }
 
   borrarMedico( producto: Producto ) {
-    /*
+
     Swal.fire({
       title: '¿Borrar médico?',
       text: `Esta a punto de borrar a ${ producto.nombre }`,
@@ -75,20 +75,20 @@ export class ProductosComponent implements OnInit, OnDestroy {
     }).then((result) => {
       if (result.value) {
 
-        this.medicoService.borrarMedico( medico._id )
+        this.productoService.borrarProducto( producto._id )
           .subscribe( resp => {
 
-            this.cargarMedicos();
+            this.cargarProductos();
             Swal.fire(
               'Médico borrado',
-              `${ medico.nombre } fue eliminado correctamente`,
+              `${ producto.nombre } fue eliminado correctamente`,
               'success'
             );
 
           });
 
       }
-    })*/
+    })
 
   }
 

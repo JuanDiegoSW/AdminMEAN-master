@@ -26,12 +26,14 @@ router.get('/',validarJWT,productosGet );
 router.get('/:id',validarJWT,productoGet );
 
 router.put('/:id',[
+    validarJWT,
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeProductoPorId ),
     validarCampos
 ],productoPut );
 
 router.post('/',[
+    validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
     check('stock', 'El Stock es obligatoria').not().isEmpty(),
     //check('categoria').custom(existeCategoriaPorId),
@@ -40,6 +42,7 @@ router.post('/',[
 ], productoPost );
 
 router.delete('/:id',[
+    validarJWT,
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeProductoPorId ),
     validarCampos

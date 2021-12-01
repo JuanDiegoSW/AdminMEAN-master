@@ -43,6 +43,9 @@ export class ProductoService {
   }
 
   crearProducto( producto: { nombre: string, categoria: string } ) {
+    console.log(producto);
+    console.log(this.headers);
+
 
     const url = `${ base_url }/productos`;
     return this.http.post( url, producto, this.headers );
