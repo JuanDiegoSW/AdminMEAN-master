@@ -7,7 +7,7 @@ cloudinary.config( process.env.CLOUDINARY_URL );
 const { response } = require('express');
 const { subirArchivo } = require('../helpers');
 
-const { Usuario, Producto } = require('../models');
+const { Usuario, Producto, Categoria } = require('../models');
 
 
 const cargarArchivo = async(req, res = response) => {
@@ -51,7 +51,13 @@ const actualizarImagen = async(req, res = response ) => {
                     msg: `No existe un producto con el id ${ id }`
                 });
             }
-        
+        case 'categorais':
+            modelo = await Categoria.findById(id);
+            if ( !modelo ) {
+                return res.status(400).json({
+                    msg: `No existe la categoria con el id ${ id }`
+                });
+            }
         break;
     
         default:
@@ -104,6 +110,16 @@ const actualizarImagenCloudinary = async(req, res = response ) => {
             if ( !modelo ) {
                 return res.status(400).json({
                     msg: `No existe un producto con el id ${ id }`
+                });
+            }
+        
+        break;
+
+        case 'categorias':
+            modelo = await Categoria.findById(id);
+            if ( !modelo ) {
+                return res.status(400).json({
+                    msg: `No existe una categoria con el id ${ id }`
                 });
             }
         
@@ -172,6 +188,16 @@ const mostrarImagen = async(req, res = response ) => {
             if ( !modelo ) {
                 return res.status(400).json({
                     msg: `No existe un producto con el id ${ id }`
+                });
+            }
+        
+        break;
+
+        case 'categorias':
+            modelo = await Categoria.findById(id);
+            if ( !modelo ) {
+                return res.status(400).json({
+                    msg: `No existe la categoria con el id ${ id }`
                 });
             }
         

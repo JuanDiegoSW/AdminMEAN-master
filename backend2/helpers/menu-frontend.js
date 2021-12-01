@@ -15,8 +15,8 @@ const getMenuFrontEnd = (role = 'USER_ROLE') => {
           icono: 'mdi mdi-folder-multiple',
           submenu: [
             // { titulo: 'Usuarios', url: 'usuarios' },
-            { titulo: 'Lista Categorias', url: 'hospitales' },
-            { titulo: 'Nueva Categoria', url: 'medicos' },
+            { titulo: 'Lista Categorias', url: 'categorias' },
+            { titulo: 'Nueva Categoria', url: 'categorias' },
           ]
         },
         {

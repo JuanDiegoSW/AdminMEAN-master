@@ -7,6 +7,7 @@ import { Usuario } from '../models/usuario.model';
 import { Hospital } from '../models/hospital.model';
 import { Medico } from '../models/medico.model';
 import { Producto } from '../models/producto.model';
+import { Categoria } from '../models/categoria.model';
 
 const base_url = environment.base_url;
 
@@ -37,7 +38,7 @@ export class BusquedasService {
     );*/
   }
 
-  private transformarHospitales( resultados: any[] ): Hospital[] {
+  private transformarCategorias( resultados: any[] ): Categoria[] {
     return resultados;
   }
 
@@ -57,7 +58,7 @@ export class BusquedasService {
 
 
   buscar(
-      tipo: 'usuarios'|'medicos'|'hospitales'|'productos',
+      tipo: 'usuarios'|'categorias'|'productos',
       termino: string
     ) {
 
@@ -67,17 +68,18 @@ export class BusquedasService {
               map( (resp: any ) => {
 
                 switch ( tipo ) {
-                  case 'usuarios':
-                    return this.transformarUsuarios( resp.resultados );
-
-                  //case 'hospitales':
-                  //  return this.transformarHospitales( resp.resultados );
-
-                  //case 'medicos':
-                  //   return this.transformarMedicos( resp.resultados );
-
                   case 'productos':
                     return this.transformarProductos( resp.resultados );
+                    //break
+                  case 'usuarios':
+                    return this.transformarUsuarios( resp.resultados );
+                    //break
+
+                  case 'categorias':
+                   return this.transformarCategorias( resp.resultados );
+                   //break
+
+
 
                   default:
                     return [];

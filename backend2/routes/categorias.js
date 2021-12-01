@@ -29,7 +29,7 @@ router.put('/:id',[
 router.post('/',[
     validarJWT,
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('nombre').custom(nombreExiste),
+    //check('nombre').custom(nombreExiste),
     validarCampos,    
 ], categoriasPost );
 

@@ -43,7 +43,7 @@ export class HospitalesComponent implements OnInit, OnDestroy {
       return this.cargarHospitales();
     }
 
-    this.busquedasService.buscar( 'hospitales', termino )
+    this.busquedasService.buscar( 'categorias', termino )
         .subscribe( resp => {
 
           this.hospitales = resp;
@@ -89,7 +89,7 @@ export class HospitalesComponent implements OnInit, OnDestroy {
       inputPlaceholder: 'Nombre del hospital',
       showCancelButton: true,
     });
-    
+
     if( value.trim().length > 0 ) {
       this.hospitalService.crearHospital( value )
         .subscribe( (resp: any) => {
@@ -105,4 +105,3 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   }
 
 }
- 

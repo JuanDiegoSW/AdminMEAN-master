@@ -39,6 +39,15 @@ const existeCategoriaPorId = async( id ) => {
     }
 }
 
+const existeNombre = async( id ) => {
+
+    // Verificar si el email existe
+    const existeCategoria = await Categoria.findById(id);
+    if ( !existeCategoria ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
+
 /**
  * Productos
  */

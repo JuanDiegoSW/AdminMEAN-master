@@ -34,19 +34,19 @@ export class CategoriaService {
 
   crearCategoria( nombre: string ) {
 
-    const url = `${ base_url }/categoria`;
+    const url = `${ base_url }/categorias`;
     return this.http.post( url, { nombre }, this.headers );
   }
 
   actualizarCategoria( _id: string, nombre: string  ) {
 
-    const url = `${ base_url }/categoria/${ _id }`;
+    const url = `${ base_url }/categorias/${ _id }`;
     return this.http.put( url, { nombre }, this.headers );
   }
 
-  borrarHospital( _id: string ) {
+  borrarCategoria( _id: string ) {
 
-    const url = `${ base_url }/categoria/${ _id }`;
+    const url = `${ base_url }/categorias/${ _id }`;
     return this.http.delete( url, this.headers );
   }
 

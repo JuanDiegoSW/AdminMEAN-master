@@ -18,6 +18,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { ProductosComponent } from './mantenimientos/productos/productos.component';
 import { ProductoComponent } from './mantenimientos/productos/producto.component';
+import { CategoriasComponent } from './mantenimientos/categorias/categorias.component';
 
 
 const childRoutes: Routes = [
@@ -33,6 +34,7 @@ const childRoutes: Routes = [
   // Mantenimientos
   { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Matenimiento de Hospitales' }},
   { path: 'medicos', component: MedicosComponent, data: { titulo: 'Matenimiento de Medicos' }},
+  { path: 'categorias', component: CategoriasComponent, data: { titulo: 'Matenimiento de Categorias' }},
   { path: 'productos', component: ProductosComponent, data: { titulo: 'Matenimiento de Productos' }},
   { path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Matenimiento de Medicos' }},
   { path: 'producto/:id', component: ProductoComponent, data: { titulo: 'Matenimiento de Producto' }},
