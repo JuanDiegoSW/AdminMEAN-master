@@ -202,7 +202,7 @@ async function verifyToken(req, res, next) {
 		}
 
 		const payload = await jwt.verify(token, 'secretkey');
-        //console.log(payload)
+        
 		if (!payload) {
 			return res.status(401).send('Unauhtorized Request');
 		}

@@ -1,5 +1,6 @@
 const Role = require('../models/role');
-const { Usuario, Categoria, Producto } = require('../models');
+const { Usuario, Categoria, Producto, Cliente } = require('../models');
+
 
 const esRoleValido = async(rol = '') => {
 
@@ -18,6 +19,15 @@ const emailExiste = async( email = '' ) => {
     }
 }
 
+const emailExisteCliente = async( email = '' ) => {
+
+    // Verificar si el email existe
+    const existeEmail = await Cliente.findOne({ email });
+    if ( existeEmail ) {
+        throw new Error(`El email: ${ email }, ya está registrado`);
+    }
+}
+
 const existeUsuarioPorId = async( id ) => {
 
     // Verificar si el email existe
@@ -26,7 +36,6 @@ const existeUsuarioPorId = async( id ) => {
         throw new Error(`El id no existe ${ id }`);
     }
 }
-
 /**
  * Categorias
  */
@@ -38,7 +47,6 @@ const existeCategoriaPorId = async( id ) => {
         throw new Error(`El id no existe ${ id }`);
     }
 }
-
 const existeNombre = async( id ) => {
 
     // Verificar si el email existe
@@ -47,7 +55,6 @@ const existeNombre = async( id ) => {
         throw new Error(`El id no existe ${ id }`);
     }
 }
-
 /**
  * Productos
  */
@@ -59,7 +66,6 @@ const existeProductoPorId = async( id ) => {
         throw new Error(`El id no existe ${ id }`);
     }
 }
-
 /**
  * Validar colecciones permitidas
  */
@@ -72,6 +78,26 @@ const coleccionesPermitidas = ( coleccion = '', colecciones = []) => {
     return true;
 }
 
+/**
+ * Verificar todo relacionado con el cliente
+ */
+
+const existeClientePorId = async (id) =>{
+     // Verificar si el id existe
+     const existeCliente = await Cliente.findById(id);
+     if ( !existeCliente ) {
+         throw new Error(`El id no existe ${ id }`);
+     }
+}
+const DNIExiste = async( dni = '' ) => {
+
+    // Verificar si el DNI existe
+    const existeDNI = await Cliente.findOne({ dni });
+    if ( existeDNI ) {
+        throw new Error(`El DNI: ${ dni }, ya está registrado`);
+    }
+}
+
 
 module.exports = {
     esRoleValido,
@@ -79,6 +105,9 @@ module.exports = {
     existeUsuarioPorId,
     existeCategoriaPorId,
     existeProductoPorId,
-    coleccionesPermitidas
+    coleccionesPermitidas,
+    existeClientePorId,
+    DNIExiste,
+    emailExisteCliente
 }
 

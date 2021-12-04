@@ -2,21 +2,24 @@
 const { Schema, model } = require('mongoose');
 
 const VentaSchema = Schema({
-    usuario : {
+    cliente : {
         type: Schema.Types.ObjectId,
-        ref:'cliente'
+        ref:'Cliente'
+    },
+    usuario:{
+        type: Schema.Types.ObjectId,
+        ref: 'Usuario'
     },
     fecha: {
         type: Date,
         required: [true, 'La fecha es obligatorio']
     },
+    productos:{
+
+    },
     total:{
         type:Number,
-    },
-    estado: {
-        type: Boolean,
-        default: true
-    },
+    }
 });
 
 

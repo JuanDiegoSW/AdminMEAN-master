@@ -92,9 +92,6 @@ const varlidarADMIN_ROLE_o_MismoUsuario = async(req, res, next)  => {
             });
         }
 
-        
-
-
     } catch (error) {
         console.log(error);
         res.status(500).json({

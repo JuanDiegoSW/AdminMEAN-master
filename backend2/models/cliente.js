@@ -6,14 +6,10 @@ const ClienteSchema = Schema({
         type: String,
         required: [true, 'El nombre es obligatorio']
     },
-    correo: {
+    email: {
         type: String,
         required: [true, 'El correo es obligatorio'],
         unique: true
-    },
-    password: {
-        type: String,
-        required: [true, 'La contraseña es obligatoria'],
     },
     dni: {
         type: Number,

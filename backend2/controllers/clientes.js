@@ -26,35 +26,34 @@ const clientesGet = async(req = request, res = response) => {
 
 const clientesPost = async(req, res = response) => {
     
-    const { nombre, correo, password, dni,estado,telefono,direccion } = req.body;
-    const cliente = new Cliente({ nombre, correo, password, dni,estado,telefono,direccion });
+        const cliente = new Cliente( req.body );
+        
+        // Guardar usuario
+        await cliente.save();
 
-    // Encriptar la contraseña
-    const salt = bcryptjs.genSaltSync();
-    cliente.password = bcryptjs.hashSync( password, salt );
+        // Generar el TOKEN - JWT
+       // const token = await generarJWT( usuario.id );
 
-    // Guardar en BD
-    await cliente.save();
 
-    res.json({
-        cliente
-    });
+        res.json({
+            ok: true,
+            cliente,
+            //token
+        });
 }
 
 const clientesPut = async(req, res = response) => {
 
     const { id } = req.params;
-    const { _id, password, correo, ...resto } = req.body;
+    const { _id, correo, ...resto } = req.body;
 
-    if ( password ) {
-        // Encriptar la contraseña
-        const salt = bcryptjs.genSaltSync();
-        resto.password = bcryptjs.hashSync( password, salt );
-    }
 
-    const cliente = await Cliente.findByIdAndUpdate( id, resto );
+    const clienteactualizado = await Cliente.findByIdAndUpdate( id, resto );
 
-    res.json(cliente);
+    res.json({
+        ok: true,
+        cliente: clienteactualizado
+    });
 }
 
 const clientesPatch = (req, res = response) => {

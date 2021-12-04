@@ -2,9 +2,13 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-
-const { validarCampos } = require('../middlewares/validar-campos');
-const { dniExiste, emailExiste, existeClientePorId } = require('../helpers/db-validators');
+const { DNIExiste, emailExisteCliente, existeClientePorId } = require('../helpers/db-validators');
+const { 
+    validarJWT, 
+    validarCampos,
+    varlidarADMIN_ROLE,
+    varlidarADMIN_ROLE_o_MismoUsuario
+    } = require('../middlewares');
 
 const { clientesGet,
         clientesPut,
@@ -15,22 +19,20 @@ const { clientesGet,
 const router = Router();
 
 
-router.get('/', clientesGet );
+router.get('/',validarJWT,clientesGet );
 
 router.put('/:id',[
     check('id', 'No es un ID válido').isMongoId(),
     check('id').custom( existeClientePorId ),
-    check('dni','El DNI debe tner 8 digitos').isLength({max:8, min:8}),
-    check('telefono','El telefono debe tener 9 digitos').isLength({max:9,min:9}),
-    validarCampos
+    validarCampos,
+    validarJWT
 ],clientesPut );
 
 router.post('/',[
     check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-    check('password', 'El password debe de ser más de 6 letras').isLength({ min: 6 }),
-    check('correo', 'El correo no es válido').isEmail(),
-    check('correo').custom( emailExiste ),
-    check('dni').custom( dniExiste ),
+    check('email', 'El correo no es válido').isEmail(),
+    check('email').custom( emailExisteCliente ),
+    check('dni').custom( DNIExiste),
     check('dni','El DNI debe tner 8 digitos').isLength({max:8, min:8}),
     check('telefono','El telefono debe tener 9 digitos').isLength({max:9,min:9}),
     validarCampos
@@ -43,7 +45,6 @@ router.delete('/:id',[
 ],clientesDelete );
 
 router.patch('/', clientesPatch );
-
 
 
 
