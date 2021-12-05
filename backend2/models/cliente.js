@@ -11,6 +11,9 @@ const ClienteSchema = Schema({
         required: [true, 'El correo es obligatorio'],
         unique: true
     },
+    img: {
+        type: String,
+    },
     dni: {
         type: Number,
         required: [true, 'El DNI es obligatorio'],

@@ -58,7 +58,7 @@ export class BusquedasService {
 
 
   buscar(
-      tipo: 'usuarios'|'categorias'|'productos',
+      tipo: 'usuarios'|'categorias'|'productos'|'clientes',
       termino: string
     ) {
 

@@ -7,7 +7,7 @@ cloudinary.config( process.env.CLOUDINARY_URL );
 const { response } = require('express');
 const { subirArchivo } = require('../helpers');
 
-const { Usuario, Producto, Categoria } = require('../models');
+const { Usuario, Producto, Categoria, Cliente } = require('../models');
 
 
 const cargarArchivo = async(req, res = response) => {
@@ -30,6 +30,7 @@ const cargarArchivo = async(req, res = response) => {
 const actualizarImagen = async(req, res = response ) => {
 
     const { id, coleccion } = req.params;
+    console.log(coleccion);
 
     let modelo;
 
@@ -41,8 +42,6 @@ const actualizarImagen = async(req, res = response ) => {
                     msg: `No existe un usuario con el id ${ id }`
                 });
             }
-        
-        break;
 
         case 'productos':
             modelo = await Producto.findById(id);
@@ -51,14 +50,20 @@ const actualizarImagen = async(req, res = response ) => {
                     msg: `No existe un producto con el id ${ id }`
                 });
             }
-        case 'categorais':
+        case 'categorias':
             modelo = await Categoria.findById(id);
             if ( !modelo ) {
                 return res.status(400).json({
                     msg: `No existe la categoria con el id ${ id }`
                 });
             }
-        break;
+        case 'clientes':
+            modelo = await Cliente.findById(id);
+            if ( !modelo ) {
+                return res.status(400).json({
+                    msg: `No existe la cliente con el id ${ id }`
+                });
+            }
     
         default:
             return res.status(500).json({ msg: 'Se me olvidó validar esto'});
@@ -124,6 +129,15 @@ const actualizarImagenCloudinary = async(req, res = response ) => {
             }
         
         break;
+
+        case 'clientes':
+            modelo = await Cliente.findById(id);
+            if ( !modelo ) {
+                return res.status(400).json({
+                    msg: `No existe la cliente con el id ${ id }`
+                });
+            }
+            break;
     
         default:
             return res.status(500).json({ msg: 'Se me olvidó validar esto'});

@@ -7,6 +7,7 @@ import { BusquedasService } from '../../services/busquedas.service';
 import { Usuario } from '../../models/usuario.model';
 import { Producto } from 'src/app/models/producto.model';
 import { Categoria } from 'src/app/models/categoria.model';
+import { Cliente } from 'src/app/models/cliente.model';
 
 @Component({
   selector: 'app-busqueda',
@@ -20,6 +21,7 @@ export class BusquedaComponent implements OnInit {
   //public medicos: Medico[] = [];
   public categorias: Categoria[] = [];
   public productos: Producto[] = [];
+  public clientes: Cliente[] = [];
 
 
   constructor( private activatedRoute: ActivatedRoute,
@@ -41,6 +43,7 @@ export class BusquedaComponent implements OnInit {
           //this.medicos    = resp.medicos;
           this.categorias = resp.categorias;
           this.productos  = resp.productos;
+          this.clientes =  resp.clientes;
         });
 
   }

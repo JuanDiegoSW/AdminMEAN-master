@@ -47,8 +47,8 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
           titulo: 'Proveedores',
           icono: 'mdi mdi-stove',
           submenu: [
-            { titulo: 'Usuarios', url: 'usuarios' },
-            { titulo: 'Lista Proveedores', url: 'hospitales' },
+            { titulo: 'Proveedores', url: 'productos' },
+            { titulo: 'Lista Proveedores', url: 'productos' },
           ]
         }/*,   
         {
