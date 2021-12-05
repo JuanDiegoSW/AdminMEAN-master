@@ -1,14 +1,21 @@
 const { response, request } = require('express');
-const bcryptjs = require('bcryptjs');
-
-
 const Venta = require('../models/venta');
 
+let guardar = (req,res) =>{
 
+    let body = req.body;
+
+    let venta = Venta({
+        valor_total : body.total,
+        cliente : body.cliente,
+        
+    });
+
+}
 
 const ventasGet = async(req = request, res = response) => {
 
-    const { limite = 5, desde = 0 } = req.query;
+    /*const { limite = 5, desde = 0 } = req.query;
     const query = { estado: true };
 
     const [ total, ventas ] = await Promise.all([
@@ -16,25 +23,39 @@ const ventasGet = async(req = request, res = response) => {
         Venta.find(query)
             .skip( Number( desde ) )
             .limit(Number( limite ))
-    ]);
+    ]);*/
+
+    const ventas = await Venta.find()
+                            .populate('usuario','nombre')
+                            .populate('cliente','nombre')
+                            .populate('productos.producto','nombre')
+                            
 
     res.json({
-        total,
+        //total,
         ventas
     });
 }
 
 const ventasPost = async(req, res = response) => {
-    //console.log (req.body)
-    const { usuario, fecha, total, estado} = req.body;
-    const ventas = new Venta({ usuario, fecha, total, estado });
 
-    // Guardar en BD
-    await ventas.save();
-
-    res.json({
-        ventas
+    const uid = req.uid
+    const venta = new Venta({
+      usuario:uid,
+      ... req.body
     });
+    try {
+      const ventaDB = await venta.save();
+      res.json({
+        producto:ventaDB
+    });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+    }
 }
 
 const ventasPut = async(req, res = response) => {
@@ -77,4 +98,5 @@ module.exports = {
     ventasPut,
     ventasPatch,
     ventasDelete,
+    guardar
 }

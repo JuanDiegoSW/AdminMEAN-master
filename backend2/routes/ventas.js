@@ -1,9 +1,6 @@
 
 const { Router } = require('express');
 const { check } = require('express-validator');
-
-
-const { validarCampos } = require('../middlewares/validar-campos');
 const { esRoleValido, emailExiste, existeUsuarioPorId } = require('../helpers/db-validators');
 
 const { ventasGet,
@@ -11,6 +8,12 @@ const { ventasGet,
         ventasPut,
         ventasPatch,
         ventasDelete } = require('../controllers/ventas');
+        const { 
+            validarJWT, 
+            validarCampos,
+            varlidarADMIN_ROLE,
+            varlidarADMIN_ROLE_o_MismoUsuario
+            } = require('../middlewares');
 
 const router = Router();
 
@@ -32,6 +35,8 @@ router.post('/',[
     // check('rol', 'No es un rol válido').isIn(['ADMIN_ROLE','USER_ROLE']),
     check('rol').custom( esRoleValido ), 
     validarCampos*/
+    validarJWT,
+    validarCampos,
 ], ventasPost );
 
 router.delete('/:id',[

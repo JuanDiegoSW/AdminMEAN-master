@@ -20,6 +20,8 @@ import { ProductosComponent } from './mantenimientos/productos/productos.compone
 import { ProductoComponent } from './mantenimientos/productos/producto.component';
 import { CategoriasComponent } from './mantenimientos/categorias/categorias.component';
 import { ClientesComponent } from './mantenimientos/clientes/clientes.component';
+import { VentasComponent } from './mantenimientos/ventas/ventas.component';
+import { VentaComponent } from './mantenimientos/ventas/venta.component';
 
 
 const childRoutes: Routes = [
@@ -39,8 +41,10 @@ const childRoutes: Routes = [
   { path: 'categorias', component: CategoriasComponent, data: { titulo: 'Matenimiento de Categorias' }},
   { path: 'productos', component: ProductosComponent, data: { titulo: 'Matenimiento de Productos' }},
   { path: 'clientes', component: ClientesComponent, data: { titulo: 'Matenimiento de Clientes' }},
+  { path: 'ventas', component: VentasComponent, data: { titulo: 'Matenimiento de Ventas' }},
   //{ path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Matenimiento de Medicos' }},
-  { path: 'producto/:id', component: ProductoComponent, data: { titulo: 'Matenimiento de Producto' }},
+  { path: 'producto/:id', component: ProductoComponent, data: { titulo: 'Editar Producto' }},
+  //{ path: 'venta/:id', component: ProductoComponent, data: { titulo: 'Nueva Venta' }},
 
 
   // Rutas de Admin

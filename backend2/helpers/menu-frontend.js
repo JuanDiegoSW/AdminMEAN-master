@@ -39,8 +39,8 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
           titulo: 'Ventas',
           icono: 'mdi mdi-clipboard-check',
           submenu: [
-            { titulo: 'Lista Ventas', url: 'hospitales' },
-            { titulo: 'Nueva Venta', url: 'medicos' },
+            { titulo: 'Lista Ventas', url: 'ventas' },
+            { titulo: 'Nueva Venta', url: 'venta' },
           ]
         },
         {

@@ -1,25 +1,28 @@
 
 const { Schema, model } = require('mongoose');
 
-const VentaSchema = Schema({
+const ventaSchema = Schema({
+    fecha : {
+        type:Date,
+        default :  Date.now
+    },
+    venta_total: Number,
     cliente : {
         type: Schema.Types.ObjectId,
-        ref:'Cliente'
+        ref:'Cliente',
+        required: true
     },
     usuario:{
         type: Schema.Types.ObjectId,
-        ref: 'Usuario'
+        ref: 'Usuario',
+        required: true
     },
-    fecha: {
-        type: Date,
-        required: [true, 'La fecha es obligatorio']
-    },
-    productos:{
-
-    },
-    total:{
-        type:Number,
-    }
+    productos: [{
+        producto :{
+            type: Schema.Types.ObjectId, ref: "Producto"
+        },
+        cantidad : Number
+    }]
 });
 
 
@@ -30,4 +33,4 @@ UsuarioSchema.methods.toJSON = function() {
 }*/
 
 //exporta el modelo y crea la coleccion dentro de nuestra bd
-module.exports = model( 'Ventas', VentaSchema );
+module.exports = model( 'Ventas', ventaSchema );

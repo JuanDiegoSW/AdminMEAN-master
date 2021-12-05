@@ -37,7 +37,7 @@ const productoPost = async(req, res = response) => {
     //console.log (req.body)
     //const { nombre,estado,usuario,precio, stock,categoria,img} = req.body;
     //const producto = new Producto({ nombre,estado,usuario,precio, stock,categoria,img });
-    console.log(req);
+    //console.log(req);
 
     const uid = req.uid
     const producto = new Producto({
