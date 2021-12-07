@@ -67,7 +67,7 @@
             <tbody>
               <tr *ngFor="let prod of productos">
                 <td class="text-center">
-                  <img [src]="prod.img"
+                  <img style="border-radius: 50%;" [src]="prod.img"
                   [alt]="prod.nombre"
                   class="w100 cursor"
                   (click)="abrirModal(prod)">
@@ -94,7 +94,7 @@
                     <i class="fa fa-pencil text-inverse m-r-10"></i>
                   </a>
 
-                  <a class="cursor" data-toggle="tooltip" data-original-title="Borrar" (click)="borrarMedico( prod )">
+                  <a class="cursor" data-toggle="tooltip" data-original-title="Borrar" (click)="borrarProducto( prod )">
                     <i class="fa fa-close text-danger"></i>
                   </a>
                 </td>

@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-body">
 
-        <input type="text" class="form-control" placeholder="Buscar Producto..." #txtTermino
+        <input type="text" class="form-control" placeholder="Buscar Cliente..." #txtTermino
           (keyup)="buscar( txtTermino.value )" />
 
       </div>
@@ -28,8 +28,6 @@
   <div class="col-12">
     <div class="card">
       <div class="card-body">
-
-
         <div class="row">
           <div class="col-8">
             <h4 class="card-title">Productos ({{ clientes.length }})</h4>
@@ -41,8 +39,8 @@
           <div class="col">
             <div class="text-right">
               <a class="btn btn-primary" routerLink="/dashboard/cliente/nuevo">
-                <i class="fa fa-hospital-o"></i>
-                Crear Producto
+                <i class="fa fa-user-o"></i>
+                Crear Cliente
               </a>
             </div>
           </div>
@@ -55,47 +53,46 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th class="w100">Foto</th>
-                <th>Nombre</th>
-                <th>Categoria</th>
-                <th>Stock</th>
-                <th>Precio</th>
-                <th>Usuario</th>
+                <th class="w100 text-center">Foto</th>
+                <th class="text-center">Nombre Cliente</th>
+                <th class="text-center">DNI</th>
+                <th class="text-center">Email</th>
+                <th class="text-center">Telefono</th>
+                <th class="text-center">Direccion</th>
                 <th class="w100 text-nowrap">Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let cliente of clientes">
-                <td class="text-center">
-                  <img [src]="cliente.img"
-                  [alt]="cliente.nombre"
-                  class="w100 cursor"
-                  (click)="abrirModal(cliente)">
+                <td class="text-center justify-content-center">
+                  <img style="border-radius: 50%;" [src]="cliente.img" [alt]="cliente.nombre" class="w50 cursor"
+                    (click)="abrirModal(cliente)">
                 </td>
-                <td>
+                <td class="text-center">
                   {{ cliente.nombre }}
                 </td>
-                <td>
+                <td class="text-center">
                   {{ cliente.dni }}
                 </td>
-                <td>
+                <td class="text-center">
                   {{ cliente.email }}
                 </td>
-                <td>
+                <td class="text-center">
                   {{ cliente.telefono }}
                 </td>
-                <td>
+                <td class="text-center">
                   {{ cliente.direccion }}
                 </td>
 
                 <td class="text-nowrap text-center">
-                  <a [routerLink]="['/dashboard','producto', cliente._id ]" data-toggle="tooltip"
+                  <a [routerLink]="['/dashboard','cliente', cliente._id ]" data-toggle="tooltip"
                     data-original-title="Editar">
                     <i class="fa fa-pencil text-inverse m-r-10"></i>
                   </a>
 
-                  <a class="cursor" data-toggle="tooltip" data-original-title="Borrar" (click)="borrarCliente( cliente )">
-                    <i class="fa fa-close text-danger"></i>
+                  <a class="cursor" data-toggle="tooltip" data-original-title="Borrar"
+                    (click)="borrarCliente( cliente )">
+                    <i class="fa fa-trash text-danger"></i>
                   </a>
                 </td>
               </tr>
@@ -103,13 +100,8 @@
             </tbody>
           </table>
         </div>
-        <!--
-              <button class="btn btn-secondary">Anteriores</button>
-              &nbsp;
-              <button class="btn btn-secondary">Siguientes</button> -->
 
       </div>
     </div>
   </div>
 </div>
-

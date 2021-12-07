@@ -18,15 +18,19 @@ import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { UsuarioComponent } from './mantenimientos/usuarios/usuario.component';
+import { NewusuarioComponent } from './mantenimientos/usuarios/newusuario.component';
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 import { ProductoComponent } from './mantenimientos/productos/producto.component';
+import { ProductonewComponent } from './mantenimientos/productos/productonew.component';
 import { ProductosComponent } from './mantenimientos/productos/productos.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { CategoriasComponent } from './mantenimientos/categorias/categorias.component';
 import { ClientesComponent } from './mantenimientos/clientes/clientes.component';
 import { ClienteComponent } from './mantenimientos/clientes/cliente.component';
+import { ClientenewComponent } from './mantenimientos/clientes/clientenew.component'
 import { VentasComponent } from './mantenimientos/ventas/ventas.component';
 import { ProveedoresComponent } from './mantenimientos/proveedores/proveedores.component';
 import { ProveedorComponent } from './mantenimientos/proveedores/proveedor.component';
@@ -46,18 +50,26 @@ import { ProveedorComponent } from './mantenimientos/proveedores/proveedor.compo
     RxjsComponent,
     PerfilComponent,
     UsuariosComponent,
+    UsuarioComponent,
+    NewusuarioComponent,
     HospitalesComponent,
     MedicosComponent,
     MedicoComponent,
     BusquedaComponent,
     ProductosComponent,
     ProductoComponent,
+    ProductonewComponent,
     CategoriasComponent,
     ClientesComponent,
     ClienteComponent,
+<<<<<<< HEAD
     VentasComponent,
     ProveedoresComponent,
     ProveedorComponent
+=======
+    ClientenewComponent,
+    VentasComponent
+>>>>>>> 2fe3f05c88210751c186d7060b6d545796806a16
   ],
   exports: [
     DashboardComponent,

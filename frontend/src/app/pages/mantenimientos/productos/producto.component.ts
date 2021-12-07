@@ -85,6 +85,7 @@ export class ProductoComponent implements OnInit {
 
   }
 
+
   cargarCategoria() {
 
     this.categoriaService.cargarCategorias()
@@ -117,7 +118,7 @@ export class ProductoComponent implements OnInit {
 
           .subscribe( (resp: any) => {
             Swal.fire('Creado', `${ nombre } creado correctamente`, 'success');
-            this.router.navigateByUrl(`/dashboard/producto/${ resp.producto._id }`)
+            this.router.navigateByUrl(`/dashboard/producto`)
         })
     }
   }
@@ -143,7 +144,7 @@ export class ProductoComponent implements OnInit {
       .actualizarFoto( this.imagenSubir, 'productos', this.producto._id )
       .then( img => {
         this.producto.img = img;
-        Swal.fire('Guardado', 'Imagen de usuario actualizada', 'success');
+        Swal.fire('Guardado', 'Imagen de producto actualizada', 'success');
       }).catch( err => {
         console.log(err);
         Swal.fire('Error', 'No se pudo subir la imagen', 'error');

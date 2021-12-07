@@ -53,56 +53,21 @@
                       </div>
                   </div>
 
+
               </div>
-
-
-
-
-
-
-              <div class="table-responsive">
-                  <table class="table table-bordered">
-                      <thead>
-                          <tr>
-                              <th class="w100">Foto</th>
-                              <th>Nombre</th>
-                              <th class="w100 text-nowrap">Acciones</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr *ngFor="let categoria of categorias">
-                              <td class="text-center">
-                                  <img [src]="categoria.img"
-                                      [alt]="categoria.nombre"
-                                      class="w100 cursor"
-                                      (click)="abrirModal(categoria)">
-                              </td>
-                              <td>
-                                  <input type="text"
-                                          class="form-control"
-                                          placeholder="Nombre del hospital"
-                                          [(ngModel)]="categoria.nombre" />
-                              </td>
-
-                              <td class="text-nowrap text-center">
-                                  <a (click)="guardarCambios(categoria)"
-                                      data-toggle="tooltip"
-                                      class="cursor"
-                                      data-original-title="Guardar cambios">
-                                      <i class="fa fa-pencil text-inverse m-r-10"></i>
-                                  </a>
-
-                                  <a (click)="eliminarCategoria(categoria)"
-                                      data-toggle="tooltip"
-                                      data-original-title="Borrar"
-                                      class="cursor">
-                                      <i class="fa fa-close text-danger"></i>
-                                  </a>
-                              </td>
-                          </tr>
-
-                      </tbody>
-                  </table>
+              <div class="row ">
+                <div class="col-md-3 p-4" *ngFor="let categoria of categorias">
+                  <div class="card card-photo ">
+                    <div class="card-header text-center">
+                      {{categoria.nombre}}
+                    </div>
+                    <div class="card-body mx-auto d-block">
+                      <td >
+                        <img style="border-radius: 50%;" [src]="categoria.img" class="imgcards cursor" (click)="abrirModal(categoria)">
+                      </td>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <!-- <button class="btn btn-secondary">Anteriores</button>
@@ -113,3 +78,5 @@
       </div>
   </div>
 </div>
+
+

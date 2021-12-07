@@ -231,10 +231,25 @@ const mostrarImagen = async(req, res = response ) => {
         }
     }
 
-    const pathImagen = path.join( __dirname, '../assets/no-image.jpg');
-    res.sendFile( pathImagen );
+    const pathImg = path.join( __dirname, `../uploads/no-img.jpg` );
+        res.sendFile( pathImg );
 }
+const retornaImagen = ( req, res = response ) => {
 
+    const tipo = req.params.tipo;
+    const foto = req.params.foto;
+
+    const pathImg = path.join( __dirname, `../uploads/${ tipo }/${ foto }` );
+
+    // imagen por defecto
+    if ( fs.existsSync( pathImg ) ) {
+        res.sendFile( pathImg );
+    } else {
+        const pathImg = path.join( __dirname, `../uploads/no-img.jpg` );
+        res.sendFile( pathImg );
+    }
+
+}
 
 
 
@@ -242,5 +257,7 @@ module.exports = {
     cargarArchivo,
     actualizarImagen,
     mostrarImagen,
-    actualizarImagenCloudinary
+    actualizarImagenCloudinary,
+    retornaImagen
+
 }
