@@ -11,6 +11,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 // Mantenimientos
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { UsuarioComponent } from './mantenimientos/usuarios/usuario.component';
+import { NewusuarioComponent } from './mantenimientos/usuarios/newusuario.component';
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 import { MedicoComponent } from './mantenimientos/medicos/medico.component';
@@ -18,10 +20,13 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 import { AdminGuard } from '../guards/admin.guard';
 import { ProductosComponent } from './mantenimientos/productos/productos.component';
 import { ProductoComponent } from './mantenimientos/productos/producto.component';
+import { ProductonewComponent } from './mantenimientos/productos/productonew.component';
 import { CategoriasComponent } from './mantenimientos/categorias/categorias.component';
 import { ClientesComponent } from './mantenimientos/clientes/clientes.component';
 import { VentasComponent } from './mantenimientos/ventas/ventas.component';
-import { VentaComponent } from './mantenimientos/ventas/venta.component';
+import { ClienteComponent } from './mantenimientos/clientes/cliente.component';
+
+
 
 
 const childRoutes: Routes = [
@@ -35,15 +40,26 @@ const childRoutes: Routes = [
   { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' }},
 
   // Mantenimientos
-  //{ path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Matenimiento de Hospitales' }},
-  //{ path: 'medicos', component: MedicosComponent, data: { titulo: 'Matenimiento de Medicos' }},
+  { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Matenimiento de Hospitales' }},
+  { path: 'medicos', component: MedicosComponent, data: { titulo: 'Matenimiento de Medicos' }},
+  /** USUARIOS **/
   { path: 'usuarios', canActivate: [ AdminGuard ], component: UsuariosComponent, data: { titulo: 'Matenimiento de Usuarios' }},
+  { path: 'usuario/:id', canActivate: [ AdminGuard ], component: UsuarioComponent, data: { titulo: 'Matenimiento de Usuario' }},
+  { path: 'usuarios/nuevo', canActivate: [ AdminGuard ], component: NewusuarioComponent, data: { titulo: 'Nuevo Usuario' }},
+  /**  CATEGORIAS**/
   { path: 'categorias', component: CategoriasComponent, data: { titulo: 'Matenimiento de Categorias' }},
+  /** PRODUCTOS **/
   { path: 'productos', component: ProductosComponent, data: { titulo: 'Matenimiento de Productos' }},
+  { path: 'producto/:id', component: ProductoComponent, data: { titulo: 'Matenimiento de Producto' }},
+  //{ path: 'productos/nuevo', component: ProductonewComponent, data: { titulo: 'Nuevo Producto' }},
+  /** CLIENTES **/
   { path: 'clientes', component: ClientesComponent, data: { titulo: 'Matenimiento de Clientes' }},
-  { path: 'ventas', component: VentasComponent, data: { titulo: 'Matenimiento de Ventas' }},
+  //{ path: 'cliente/nuevo', component: ClientenewComponent, data: { titulo: 'Nuevo Cliente' }},
+  { path: 'cliente/:id', component: ClienteComponent, data: { titulo: 'Mantenimiento Cliente' }},
+  { path: 'ventas', component: VentasComponent, data: { titulo: ' Ventas' }},
   //{ path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Matenimiento de Medicos' }},
-  { path: 'producto/:id', component: ProductoComponent, data: { titulo: 'Editar Producto' }},
+
+
   //{ path: 'venta/:id', component: ProductoComponent, data: { titulo: 'Nueva Venta' }},
 
 

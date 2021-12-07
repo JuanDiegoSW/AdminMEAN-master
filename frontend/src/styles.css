@@ -22,6 +22,10 @@
     height: 200px;
     width: 200px;
 }
+.imgcards {
+  height: 100px;
+  width: 100px;
+}
 
 .w75 {
     width: 75px;
@@ -29,6 +33,9 @@
 
 .w100 {
     width: 100px;
+}
+.w50 {
+  width: 50px;
 }
 
 .w140 {

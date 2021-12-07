@@ -1,0 +1,70 @@
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Dato del usuario</h4>
+
+
+        <form class="form p-t-20" [formGroup]="usuarioForm" (submit)="guardarUsuario()">
+
+          <div class="form-group">
+            <label for="exampleInputuname">Nombre Usuario</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input type="text" class="form-control" id="exampleInputuname" placeholder="Nombre del usuario"
+                formControlName="nombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Correo</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
+                formControlName="email">
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label for="exampleInputEmail3" class="col-sm-3 control-label">Role</label>
+              <div class="input-group">
+                <select class="form-control" (change)="cambiarRole( usuario )">
+                  <option value="ADMIN_ROLE">Admin</option>
+                  <option value="USER_ROLE">User</option>
+                </select>
+              </div>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block waves-effect waves-light m-r-10"
+            [disabled]="usuarioForm.invalid">
+            <i class="fa fa-save"></i>
+            Guardar cambios
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-subtitle">Imagen del usuario</h6>
+
+
+        <div class="form-group row" *ngIf="usuarioSeleccionado">
+          <label for="exampleInputuname3" class="col-sm-3 control-label">Foto</label>
+          <div class="col-sm-9">
+            <div class="input-group">
+              <img [src]="usuarioSeleccionado.img | imagen: 'productos'" class="w200 text-center" />
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <br>
+
+    </div>
+  </div>
+</div>

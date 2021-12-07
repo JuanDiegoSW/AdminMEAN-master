@@ -8,6 +8,7 @@ import { Hospital } from '../models/hospital.model';
 import { Medico } from '../models/medico.model';
 import { Producto } from '../models/producto.model';
 import { Categoria } from '../models/categoria.model';
+import { Cliente } from '../models/cliente.model';
 
 const base_url = environment.base_url;
 
@@ -45,6 +46,9 @@ export class BusquedasService {
   private transformarMedicos( resultados: any[] ): Medico[] {
     return resultados;
   }
+  private transformarClientes( resultados: any[] ): Cliente[] {
+    return resultados;
+  }
   private transformarProductos( resultados: any[] ): Producto[] {
     return resultados;
   }
@@ -78,7 +82,8 @@ export class BusquedasService {
                   case 'categorias':
                    return this.transformarCategorias( resp.resultados );
                    //break
-
+                   case 'clientes':
+                    return this.transformarClientes( resp.resultados );
 
 
                   default:

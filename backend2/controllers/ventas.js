@@ -26,7 +26,7 @@ const ventasGet = async(req = request, res = response) => {
     ]);*/
 
     const ventas = await Venta.find()
-                            .populate('usuario','nombre')
+                            .populate('usuario')
                             .populate('cliente','nombre')
                             .populate('productos.producto','nombre')
                             

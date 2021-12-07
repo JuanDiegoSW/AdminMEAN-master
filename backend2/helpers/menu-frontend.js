@@ -6,7 +6,7 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
         icono: 'mdi mdi-stove',
         submenu: [
           { titulo: 'Usuarios', url: 'usuarios' },
-          { titulo: 'Lista Usuarios', url: 'usuarios' },
+          { titulo: 'Nuevo Usuario', url: 'usuarios/nuevo' },
         ]
       },
       {
@@ -15,7 +15,7 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
         icono: 'mdi mdi-stove',
         submenu: [
           { titulo: 'Clientes', url: 'clientes' },
-          { titulo: 'Lista Clientes', url: 'clientes' },
+          { titulo: 'Nuevo Clientes', url: 'cliente/nuevo' },
         ]
       },
         {
@@ -24,15 +24,14 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
           icono: 'mdi mdi-cake',
           submenu: [
             { titulo: 'Lista Productos', url: 'productos' },
-            { titulo: 'Nuevo Producto', url: 'productos' },
+            { titulo: 'Nuevo Producto', url: 'producto/nuevo' },
           ]
         },
         {
           titulo: 'Categorias',
           icono: 'mdi mdi-folder-multiple',
           submenu: [
-            { titulo: 'Lista Categorias', url: 'categorias' },
-            { titulo: 'Nueva Categoria', url: 'categorias' },
+            { titulo: 'Lista Categorias', url: 'categorias' }
           ]
         },
         {
@@ -47,8 +46,8 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
           titulo: 'Proveedores',
           icono: 'mdi mdi-stove',
           submenu: [
-            { titulo: 'Proveedores', url: 'productos' },
-            { titulo: 'Lista Proveedores', url: 'productos' },
+            { titulo: 'Proveedores', url: 'proveedores' },
+            { titulo: 'Nuevo Proveedor', url: 'proveedor/nuevo' },
           ]
         }/*,   
         {

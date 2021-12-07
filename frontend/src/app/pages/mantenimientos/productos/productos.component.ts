@@ -64,10 +64,10 @@ export class ProductosComponent implements OnInit, OnDestroy {
 
   }
 
-  borrarMedico( producto: Producto ) {
+  borrarProducto( producto: Producto ) {
 
     Swal.fire({
-      title: '¿Borrar médico?',
+      title: '¿Borrar producto?',
       text: `Esta a punto de borrar a ${ producto.nombre }`,
       icon: 'question',
       showCancelButton: true,
@@ -80,7 +80,7 @@ export class ProductosComponent implements OnInit, OnDestroy {
 
             this.cargarProductos();
             Swal.fire(
-              'Médico borrado',
+              'Producto borrado',
               `${ producto.nombre } fue eliminado correctamente`,
               'success'
             );

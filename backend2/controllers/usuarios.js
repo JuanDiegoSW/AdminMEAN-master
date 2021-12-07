@@ -27,6 +27,19 @@ const usuariosGet = async(req,res) => {
     });
 }
 
+const usuarioGet = async(req,res) => {
+
+    //const desde = Number(req.query.desde) || 0;
+    const { id } = req.params;
+
+    const usuario = await Usuario.findById(id)
+
+    res.json({
+        ok: true,
+        usuario
+    });
+}
+
 const usuariosPostLogin = async (req, res) => {
     const { correo, password } = req.body;
     
@@ -103,7 +116,7 @@ const usuariosPut = async(req, res = response) => {
         }
 
         // Actualizaciones
-        const { password, google, email, ...campos } = req.body;
+        const { password, email, ...campos } = req.body;
 
         if ( usuarioDB.email !== email ) {
 
@@ -218,6 +231,7 @@ async function verifyToken(req, res, next) {
 
 module.exports = {
     usuariosGet,
+    usuarioGet,
     verifyToken,
     usuariosPost,
     usuariosPut,

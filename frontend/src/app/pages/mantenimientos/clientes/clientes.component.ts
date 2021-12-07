@@ -47,14 +47,14 @@ export class ClientesComponent implements OnInit {
   }
   abrirModal(cliente: Cliente) {
 
-    this.modalImagenService.abrirModal( 'clientes', cliente._id, cliente.nombre );
+    this.modalImagenService.abrirModal( 'clientes', cliente._id, cliente.img );
 
   }
 
   borrarCliente( cliente: Cliente ) {
 
     Swal.fire({
-      title: '¿Borrar médico?',
+      title: '¿Borrar Cliente?',
       text: `Esta a punto de borrar a ${ cliente.nombre }`,
       icon: 'question',
       showCancelButton: true,

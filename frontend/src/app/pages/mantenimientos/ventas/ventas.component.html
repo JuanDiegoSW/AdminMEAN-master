@@ -36,7 +36,7 @@
               Productos registrados en mi aplicación
             </h6>
           </div>
-
+          <!--
           <div class="col">
             <div class="text-right">
               <a class="btn btn-primary" routerLink="/dashboard/producto/nuevo">
@@ -45,7 +45,7 @@
               </a>
             </div>
           </div>
-
+          -->
         </div>
 
 
@@ -54,19 +54,18 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th class="w100">Foto</th>
-                <th>Nombre</th>
-                <th>Categoria</th>
-                <th>Stock</th>
-                <th>Precio</th>
-                <th>Usuario</th>
+                <th class="w100">Usuario</th>
+                <th>Nombre Cliente</th>
+                <th>Total</th>
+                <th>Fecha</th>
                 <th class="w100 text-nowrap">Acciones</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let venta of ventas">
                 <td>
-                  {{ venta.usuario.nombre }}
+                  <img class = "w50" style="border-radius: 50%;" [src]="venta.usuario.img">
+                  <label>{{ venta.usuario.nombre }}</label>
                 </td>
                 <td>
                   {{ venta.cliente.nombre }}
