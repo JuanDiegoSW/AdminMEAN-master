@@ -28,6 +28,8 @@ import { CategoriasComponent } from './mantenimientos/categorias/categorias.comp
 import { ClientesComponent } from './mantenimientos/clientes/clientes.component';
 import { ClienteComponent } from './mantenimientos/clientes/cliente.component';
 import { VentasComponent } from './mantenimientos/ventas/ventas.component';
+import { ProveedoresComponent } from './mantenimientos/proveedores/proveedores.component';
+import { ProveedorComponent } from './mantenimientos/proveedores/proveedor.component';
 
 
 
@@ -53,7 +55,9 @@ import { VentasComponent } from './mantenimientos/ventas/ventas.component';
     CategoriasComponent,
     ClientesComponent,
     ClienteComponent,
-    VentasComponent
+    VentasComponent,
+    ProveedoresComponent,
+    ProveedorComponent
   ],
   exports: [
     DashboardComponent,

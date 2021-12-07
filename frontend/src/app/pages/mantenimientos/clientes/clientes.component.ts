@@ -45,6 +45,7 @@ export class ClientesComponent implements OnInit {
           this.clientes = resp;
         });
   }
+  
   abrirModal(cliente: Cliente) {
 
     this.modalImagenService.abrirModal( 'clientes', cliente._id, cliente.nombre );

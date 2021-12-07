@@ -24,6 +24,17 @@ const proveedoresGet = async(req = request, res = response) => {
     });
 }
 
+const proveedorGet = async(req = request, res = response) => {
+
+    const { id } = req.params;
+    const proveedor = await Proveedor.findById(id);
+
+    res.json({
+        ok: true,
+        proveedor
+    })
+}
+
 const proveedoresPost = async(req, res = response) => {
     
     const { ruc, nombre, direccion, telefono, email } = req.body;
@@ -81,6 +92,7 @@ const proveedoresDelete = async(req, res = response) => {
 
 module.exports = {
     proveedoresGet,
+    proveedorGet,
     proveedoresPost,
     proveedoresPut,
     proveedoresPatch,

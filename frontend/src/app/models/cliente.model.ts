@@ -28,6 +28,5 @@ export class Cliente {
         public direccion?: String
     ) {}
 
-
 }
 

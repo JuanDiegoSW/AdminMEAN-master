@@ -22,6 +22,8 @@ import { CategoriasComponent } from './mantenimientos/categorias/categorias.comp
 import { ClientesComponent } from './mantenimientos/clientes/clientes.component';
 import { VentasComponent } from './mantenimientos/ventas/ventas.component';
 import { VentaComponent } from './mantenimientos/ventas/venta.component';
+import { ProveedoresComponent } from './mantenimientos/proveedores/proveedores.component';
+import { ProveedorComponent } from './mantenimientos/proveedores/proveedor.component';
 
 
 const childRoutes: Routes = [
@@ -42,8 +44,10 @@ const childRoutes: Routes = [
   { path: 'productos', component: ProductosComponent, data: { titulo: 'Matenimiento de Productos' }},
   { path: 'clientes', component: ClientesComponent, data: { titulo: 'Matenimiento de Clientes' }},
   { path: 'ventas', component: VentasComponent, data: { titulo: 'Matenimiento de Ventas' }},
+  { path: 'proveedores', component: ProveedoresComponent, data: { titulo: 'Matenimiento de Proveedores' }},
   //{ path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Matenimiento de Medicos' }},
   { path: 'producto/:id', component: ProductoComponent, data: { titulo: 'Editar Producto' }},
+  { path: 'proveedores/:id', component: ProveedorComponent, data: { titulo: 'Editar Proveedor' }},
   //{ path: 'venta/:id', component: ProductoComponent, data: { titulo: 'Nueva Venta' }},
 
 
