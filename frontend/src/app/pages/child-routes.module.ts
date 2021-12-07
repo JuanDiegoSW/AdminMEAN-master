@@ -24,15 +24,12 @@ import { ProductonewComponent } from './mantenimientos/productos/productonew.com
 import { CategoriasComponent } from './mantenimientos/categorias/categorias.component';
 import { ClientesComponent } from './mantenimientos/clientes/clientes.component';
 import { VentasComponent } from './mantenimientos/ventas/ventas.component';
-<<<<<<< HEAD
 import { VentaComponent } from './mantenimientos/ventas/venta.component';
 import { ProveedoresComponent } from './mantenimientos/proveedores/proveedores.component';
 import { ProveedorComponent } from './mantenimientos/proveedores/proveedor.component';
-=======
 import { ClienteComponent } from './mantenimientos/clientes/cliente.component';
 
 
->>>>>>> 2fe3f05c88210751c186d7060b6d545796806a16
 
 
 const childRoutes: Routes = [
@@ -60,20 +57,17 @@ const childRoutes: Routes = [
   //{ path: 'productos/nuevo', component: ProductonewComponent, data: { titulo: 'Nuevo Producto' }},
   /** CLIENTES **/
   { path: 'clientes', component: ClientesComponent, data: { titulo: 'Matenimiento de Clientes' }},
-<<<<<<< HEAD
   { path: 'ventas', component: VentasComponent, data: { titulo: 'Matenimiento de Ventas' }},
   { path: 'proveedores', component: ProveedoresComponent, data: { titulo: 'Matenimiento de Proveedores' }},
   //{ path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Matenimiento de Medicos' }},
   { path: 'producto/:id', component: ProductoComponent, data: { titulo: 'Editar Producto' }},
   { path: 'proveedores/:id', component: ProveedorComponent, data: { titulo: 'Editar Proveedor' }},
-=======
   //{ path: 'cliente/nuevo', component: ClientenewComponent, data: { titulo: 'Nuevo Cliente' }},
   { path: 'cliente/:id', component: ClienteComponent, data: { titulo: 'Mantenimiento Cliente' }},
   { path: 'ventas', component: VentasComponent, data: { titulo: ' Ventas' }},
   //{ path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Matenimiento de Medicos' }},
 
 
->>>>>>> 2fe3f05c88210751c186d7060b6d545796806a16
   //{ path: 'venta/:id', component: ProductoComponent, data: { titulo: 'Nueva Venta' }},
 
 

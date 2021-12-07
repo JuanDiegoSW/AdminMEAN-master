@@ -62,14 +62,11 @@ import { ProveedorComponent } from './mantenimientos/proveedores/proveedor.compo
     CategoriasComponent,
     ClientesComponent,
     ClienteComponent,
-<<<<<<< HEAD
     VentasComponent,
     ProveedoresComponent,
-    ProveedorComponent
-=======
+    ProveedorComponent,
     ClientenewComponent,
     VentasComponent
->>>>>>> 2fe3f05c88210751c186d7060b6d545796806a16
   ],
   exports: [
     DashboardComponent,
