@@ -1,102 +1,36 @@
 const { response, request } = require('express');
 
 const Producto = require('../models/producto');
+const Venta = require('../models/venta');
+const Cliente = require('../models/cliente');
+const Prov = require('../models/proveedor');
 
 
 
-const productosGet = async(req = request, res = response) => {
+const funciones = async(req = request, res = response) => {
 
-    const productos = await Producto.find()
+    /*const productos = await Producto.find()
                                 .populate('usuario','nombre')
                                 .populate('categoria','nombre')
-
-
+    */
+    const nro_ventas = await Venta.countDocuments()
+    const nro_productos = await Producto.countDocuments()
+    const nro_clientes = await Cliente.countDocuments()
+    const nro_prov = await Prov.countDocuments()
+        
     res.json({
-        ok: true,
-        productos
+        ventas : nro_ventas,
+        productos : nro_productos,
+        clientes : nro_clientes,
+        proveedores : nro_prov
     })
 }
 
-const productoGet = async(req = request, res = response) => {
 
-    const { id } = req.params;
-    const producto = await Producto.findById(id)
-                                .populate('usuario','nombre')
-                                .populate('categoria','nombre')
-
-
-    res.json({
-        ok: true,
-        producto
-    })
-}
-
-const productoPost = async(req, res = response) => {
-    //console.log (req.body)
-    //const { nombre,estado,usuario,precio, stock,categoria,img} = req.body;
-    //const producto = new Producto({ nombre,estado,usuario,precio, stock,categoria,img });
-    //console.log(req);
-
-    const uid = req.uid
-    const producto = new Producto({
-      usuario:uid,
-      ... req.body
-    });
-    try {
-      const productoDB = await producto.save();
-      res.json({
-        producto:productoDB
-    });
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({
-        ok: false,
-        msg: 'Hable con el administrador'
-    })
-
-    }
-    
-}
-
-const productoPut = async(req, res = response) => {
-
-    const { id } = req.params;
-    const { _id, ...resto } = req.body;
-
-    
-
-    const producto = await Producto.findByIdAndUpdate( id, resto );
-
-    res.json(producto);
-}
-
-const productosPatch = (req, res = response) => {
-    res.json({
-        msg: 'patch API - articulosPatch'
-    });
-}
-
-const productoDelete = async(req, res = response) => {
-
-    const { id } = req.params;
-
-    //Fisicamente lo borramos
-    const producto = await Producto.findByIdAndDelete( id );
-
-    //const Articulo = await Articulo.findByIdAndUpdate( id, { estado: false } );
-
-
-    res.json(producto);
-}
 
 
 
 
 module.exports = {
-    productosGet,
-    productoGet,
-    productoPost,
-    productoPut,
-    productosPatch,
-    productoDelete,
+    funciones
 }

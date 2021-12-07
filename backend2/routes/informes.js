@@ -1,10 +1,9 @@
 const { Router } = require('express');
-const { validarJWT } = require('../middlewares')
+const { funciones } = require('../controllers/informes')
 
 const router = Router();
 
-router.get('/',validarJWT,ventasporfechas );
-router.get('/:id',validarJWT,cantidadVenidas );
+router.get('/data1',funciones)
 
 
 module.exports = router;

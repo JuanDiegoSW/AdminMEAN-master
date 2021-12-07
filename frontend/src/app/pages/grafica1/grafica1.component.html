@@ -1,22 +1,57 @@
 <div class="row">
     <div class="col-6">
-        <app-dona title="Ventas"></app-dona>
+        <app-dona [labels]="labels1"
+                [data]="data1"
+                title="Ventas">
+        </app-dona>
     </div>
 
     <div class="col-6">
-        <app-dona [labels]="labels1"
-                  [data]="data1"
+        <app-dona [labels]="labels2"
+                  [data]="data2"
                   title="Compras">
         </app-dona>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-6">
-        <app-dona title="Cambios"></app-dona>
-    </div>
 
-    <div class="col-6">
-        <app-dona title="Compras 2"></app-dona>
-    </div>
+
+<div class="row m-t-40">
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+      <div class="card">
+          <div class="box bg-info text-center">
+              <h1 class="font-light text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></h1>
+              <h6 class="text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Numero de Clientes</font></font></h6>
+          </div>
+      </div>
+  </div>
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+      <div class="card">
+          <div class="box bg-primary text-center">
+              <h1 class="font-light text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">7</font></font></h1>
+              <h6 class="text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Numero de Ventas</font></font></h6>
+          </div>
+      </div>
+  </div>
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+      <div class="card">
+          <div class="box bg-success text-center">
+              <h1 class="font-light text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3</font></font></h1>
+              <h6 class="text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Numero de Proveedores</font></font></h6>
+          </div>
+      </div>
+  </div>
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+      <div class="card">
+          <div class="box bg-dark text-center">
+              <h1 class="font-light text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">6</font></font></h1>
+              <h6 class="text-white"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Numero de Productos</font></font></h6>
+          </div>
+      </div>
+  </div>
+  <!-- Column -->
 </div>
