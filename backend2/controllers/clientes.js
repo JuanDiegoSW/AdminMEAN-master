@@ -23,23 +23,35 @@ const clientesGet = async(req = request, res = response) => {
         clientes
     });
 }
+const clienteGet = async (req =  request, res = response) => {
+    const {id} = req.params
+
+    const cliente =   await Cliente.findById(id)
+
+    res.json({
+        ok:true,
+        cliente
+    })
+}
 
 const clientesPost = async(req, res = response) => {
     
-        const cliente = new Cliente( req.body );
-        
-        // Guardar usuario
-        await cliente.save();
-
-        // Generar el TOKEN - JWT
-       // const token = await generarJWT( usuario.id );
-
-
-        res.json({
-            ok: true,
-            cliente,
-            //token
+       
+        const { nombre,email, dni, telefono, direccion } = req.body;
+        const cliente = new Cliente( nombre,email, dni, telefono, direccion);
+        try {
+          const clienteDB = await cliente.save();
+          res.json({
+            cliente:clienteDB
         });
+        } catch (error) {
+          //console.log(error);
+          res.status(500).json({
+            ok: false,
+            msg: 'Hable con el administrador'
+        })
+
+        }
 }
 
 const clientesPut = async(req, res = response) => {
@@ -80,6 +92,7 @@ const clientesDelete = async(req, res = response) => {
 
 module.exports = {
     clientesGet,
+    clienteGet,
     clientesPost,
     clientesPut,
     clientesPatch,

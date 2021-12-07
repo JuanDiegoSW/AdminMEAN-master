@@ -8,7 +8,7 @@ const ClienteSchema = Schema({
     },
     email: {
         type: String,
-        required: [true, 'El correo es obligatorio'],
+        required: [true, 'El email es obligatorio'],
         unique: true
     },
     img: {

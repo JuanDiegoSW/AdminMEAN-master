@@ -1,1 +1,91 @@
-<p>edicion cliente works!</p>
+<div class="row">
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Perfil de Cliente</h4>
+        <h6 class="card-subtitle">Ajustes</h6>
+
+        <form class="form p-t-20" [formGroup]="clienteForm" (submit)="actualizarCliente()">
+
+          <div class="form-group">
+            <label for="exampleInputuname">Nombre Cliente</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-user"></i></div>
+              <input type="text" class="form-control" id="exampleInputuname" placeholder="Nombre del usuario"
+                formControlName="nombre">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-email"></i></div>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
+                formControlName="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputDNI">DNI</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-credit-card"></i></div>
+              <input type="number" class="form-control" id="exampleInputDNI" placeholder="Documento de Identidad"
+                formControlName="dni">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputTelefono">Telefono</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-mobile"></i></div>
+              <input type="number" class="form-control" id="exampleInputTelefono" placeholder="Numero Telefonico"
+                formControlName="telefono">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputDireccion">Direccion</label>
+            <div class="input-group">
+              <div class="input-group-addon"><i class="ti-location-pin"></i></div>
+              <input type="text" class="form-control" id="exampleInputDireccion" placeholder="Direccion"
+                formControlName="direccion">
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block waves-effect waves-light m-r-10"
+            [disabled]="clienteForm.invalid">
+            <i class="fa fa-save"></i>
+            Guardar cambios
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Avatar</h4>
+        <h6 class="card-subtitle">Imagen del cliente</h6>
+
+        <div class="text-center">
+          <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
+          <img *ngIf="!imgTemp" [src]="cliente.imagenUrl" class="img-avatar">
+        </div>
+
+        <input type="file" (change)="cambiarImagen($event.target.files[0])">
+
+        <br>
+        <br>
+
+        <button type="button" class="btn btn-success btn-block waves-effect waves-light m-r-10"
+          [disabled]="!imagenSubir" (click)="subirImagen()">
+          <i class="fa fa-save"></i>
+          Cambiar imagen
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

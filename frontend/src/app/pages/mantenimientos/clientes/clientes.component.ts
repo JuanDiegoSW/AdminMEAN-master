@@ -35,17 +35,18 @@ export class ClientesComponent implements OnInit {
       })
   }
   buscar( termino: string ) {
-
+    /*
     if ( termino.length === 0 ) {
       return this.cargarClientes();
     }
 
     this.busquedasService.buscar( 'clientes', termino )
         .subscribe( resp => {
-          this.clientes = resp;
+          this.clientes = resp
         });
+        */
   }
-  
+
   abrirModal(cliente: Cliente) {
 
     this.modalImagenService.abrirModal( 'clientes', cliente._id, cliente.img );
