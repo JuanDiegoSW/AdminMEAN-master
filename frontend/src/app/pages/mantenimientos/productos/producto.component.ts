@@ -118,7 +118,7 @@ export class ProductoComponent implements OnInit {
 
           .subscribe( (resp: any) => {
             Swal.fire('Creado', `${ nombre } creado correctamente`, 'success');
-            this.router.navigateByUrl(`/dashboard/producto`)
+            this.router.navigateByUrl(`/dashboard/productos`)
         })
     }
   }

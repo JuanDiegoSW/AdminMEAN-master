@@ -86,7 +86,7 @@ export class ProveedorComponent implements OnInit {
 
           .subscribe( (resp: any) => {
             Swal.fire('Creado', `${ nombre } creado correctamente`, 'success');
-            this.router.navigateByUrl(`/dashboard/proveedores/${ resp.proveedor._id }`)
+            this.router.navigateByUrl(`/dashboard/proveedores`)
         })
     }
   }
