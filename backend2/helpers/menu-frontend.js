@@ -3,7 +3,7 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
     const menu = [
       {
         titulo: 'Usuarios',
-        icono: 'mdi mdi-stove',
+        icono: 'mdi mdi-account-circle',
         submenu: [
           { titulo: 'Lista Usuarios', url: 'usuarios' },
           { titulo: 'Nuevo Usuario', url: 'usuario/nuevo' },
@@ -12,7 +12,7 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
       {
         /** 1 */
         titulo: 'Clientes',
-        icono: 'mdi mdi-stove',
+        icono: 'mdi mdi-shopping',
         submenu: [
           { titulo: 'Clientes', url: 'clientes' },
           { titulo: 'Nuevo Cliente', url: 'cliente/nuevo' },
@@ -66,9 +66,9 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
             submenu: [
               { titulo: 'Main', url: '/' },
               { titulo: 'Gráficas', url: 'grafica1' },
-              { titulo: 'Rxjs', url: 'rxjs' },
-              { titulo: 'Promesas', url: 'promesas' },
-              { titulo: 'ProgressBar', url: 'progress' },
+              //{ titulo: 'Rxjs', url: 'rxjs' },
+              //{ titulo: 'Promesas', url: 'promesas' },
+              //{ titulo: 'ProgressBar', url: 'progress' },
             ]
         }
       )
@@ -81,9 +81,9 @@ const getMenuFrontEnd = (role = 'ADMIN_ROLE') => {
         submenu: [
           { titulo: 'Main', url: '/' },
           { titulo: 'Gráficas', url: 'grafica1' },
-          { titulo: 'Rxjs', url: 'rxjs' },
-          { titulo: 'Promesas', url: 'promesas' },
-          { titulo: 'ProgressBar', url: 'progress' },
+          //{ titulo: 'Rxjs', url: 'rxjs' },
+          //{ titulo: 'Promesas', url: 'promesas' },
+          //{ titulo: 'ProgressBar', url: 'progress' },
         ]
       })
       /*
