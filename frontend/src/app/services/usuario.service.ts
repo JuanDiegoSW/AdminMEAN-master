@@ -29,7 +29,7 @@ export class UsuarioService {
                 private router: Router,
                 private ngZone: NgZone ) {
 
-    this.googleInit();
+    //this.googleInit();
   }
 
   get token(): string {
@@ -61,7 +61,7 @@ export class UsuarioService {
               );
   }
 
-  googleInit() {
+  /*googleInit() {
 
     return new Promise<void>( resolve => {
       gapi.load('auth2', () => {
@@ -73,7 +73,7 @@ export class UsuarioService {
       });
     })
 
-  }
+  }*/
 
   guardarLocalStorage( token: string, menu: any ) {
 
@@ -86,12 +86,14 @@ export class UsuarioService {
     localStorage.removeItem('token');
     localStorage.removeItem('menu');
 
-    this.auth2.signOut().then(() => {
+    this.router.navigateByUrl('/login');
+
+    /*this.auth2.signOut().then(() => {
 
       this.ngZone.run(() => {
         this.router.navigateByUrl('/login');
       })
-    });
+    });*/
 
   }
 
@@ -148,6 +150,7 @@ export class UsuarioService {
                 );
 
   }
+  /*
 
   loginGoogle( token ) {
 
@@ -158,7 +161,7 @@ export class UsuarioService {
                   })
                 );
 
-  }
+  }*/
 
 
   cargarUsuarios( desde: number = 0 ) {

@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 
 const Usuario = require('../models/usuario');
 const { generarJWT } = require('../helpers/jwt');
-const { googleVerify } = require('../helpers/google-verify');
+//const { googleVerify } = require('../helpers/google-verify');
 const { getMenuFrontEnd } = require('../helpers/menu-frontend');
 
 
@@ -53,7 +53,7 @@ const login = async( req, res = response ) => {
 
 }
 
-
+/*
 const googleSignIn = async( req, res = response ) => {
 
     const googleToken = req.body.token;
@@ -101,7 +101,7 @@ const googleSignIn = async( req, res = response ) => {
     }
 
 }
-
+*/
 
 const renewToken = async(req, res = response) => {
 
@@ -128,6 +128,6 @@ const renewToken = async(req, res = response) => {
 
 module.exports = {
     login,
-    googleSignIn,
+    //googleSignIn,
     renewToken
 }
