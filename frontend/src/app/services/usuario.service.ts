@@ -141,6 +141,7 @@ export class UsuarioService {
   }
 
   login( formData: LoginForm ) {
+    console.log(formData);
 
     return this.http.post(`${ base_url }/login`, formData )
                 .pipe(
