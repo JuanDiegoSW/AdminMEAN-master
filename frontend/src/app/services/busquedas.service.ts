@@ -42,10 +42,6 @@ export class BusquedasService {
   private transformarCategorias( resultados: any[] ): Categoria[] {
     return resultados;
   }
-
-  private transformarMedicos( resultados: any[] ): Medico[] {
-    return resultados;
-  }
   private transformarClientes( resultados: any[] ): Cliente[] {
     return resultados;
   }
@@ -94,6 +90,5 @@ export class BusquedasService {
             );
 
   }
-
 
 }
