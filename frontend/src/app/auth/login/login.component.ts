@@ -21,8 +21,6 @@ export class LoginComponent implements OnInit {
     password: ['', Validators.required ],
     remember: [false]
   });
-
-
   constructor( private router: Router,
                private fb: FormBuilder,
                private usuarioService: UsuarioService,
@@ -31,8 +29,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     //this.renderButton();
   }
-
-
   login() {
     //console.log(this.loginForm.value)
     this.usuarioService.login( this.loginForm.value )

@@ -53,7 +53,7 @@ const getDocumentosColeccion = async(req, res = response ) => {
         default:
             return res.status(400).json({
                 ok: false,
-                msg: 'La tabla tiene que ser usuarios/medicos/hospitales'
+                msg: 'La tabla tiene que ser usuarios/productos/categorias'
             });
     }
     

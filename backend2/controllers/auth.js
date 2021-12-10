@@ -8,11 +8,8 @@ const { getMenuFrontEnd } = require('../helpers/menu-frontend');
 
 
 const login = async( req, res = response ) => {
-
     const { email, password } = req.body;
-
     try {
-        
         // Verificar email
         const usuarioDB = await Usuario.findOne({ email });
 
@@ -22,7 +19,6 @@ const login = async( req, res = response ) => {
                 msg: 'Email no encontrado'
             });
         }
-
         // Verificar contraseña
         const validPassword = bcrypt.compareSync( password, usuarioDB.password );
         if ( !validPassword ) {
@@ -112,7 +108,6 @@ const renewToken = async(req, res = response) => {
 
     // Obtener el usuario por UID
     const usuario = await Usuario.findById( uid );
-
 
     res.json({
         ok: true,
